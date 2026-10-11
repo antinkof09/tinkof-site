@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>an.tinkof — Графический дизайнер</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Anton&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F8E9EC;--card:#FFF;--pink:#F2D5DB;--pink-mid:#E5A1B0;--pink-dark:#C77E90;--pink-deep:#A25A6D;--text:#2A1A1E;--muted:#8B6B70;--line:#F0DDE1}
+:root{--bg:#F8E9EC;--card:#FFF;--pink:#F2D5DB;--pink-mid:#E5A1B0;--pink-dark:#C77E90;--pink-deep:#A25A6D;--text:#2A1A1E;--muted:#8B6B70;--line:#F0DDE1;--rose:#FFB6C1;--blush:#FFC8D5;--deep-rose:#D97A8A}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -65,47 +65,58 @@ h2 em{font-style:italic;color:var(--pink-deep);font-weight:400}
 .srv-info h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-.3px;margin-bottom:2px}
 .srv-info p{font-size:13.5px;color:var(--muted);line-height:1.5}
 .srv-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--pink-deep);white-space:nowrap}
-.portfolio{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.work{border-radius:24px;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;cursor:pointer;transition:transform .4s ease;color:#fff}
-.work:hover{transform:scale(1.02)}
-.work::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.2) 45%,transparent 70%);z-index:2}
+
+/* ============ ПОРТФОЛИО — РОЗОВЫЙ LUXURY ============ */
+.portfolio{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.work{border-radius:24px;aspect-ratio:4/5;position:relative;overflow:hidden;cursor:pointer;transition:transform .4s ease;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.work:hover{transform:translateY(-6px)}
+.work::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(162,90,109,.75) 0%,rgba(162,90,109,.15) 45%,transparent 75%);z-index:2;pointer-events:none}
 .work-visual{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;z-index:1}
 .work-content{padding:24px;position:relative;z-index:3}
-.work-tag{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,.25);backdrop-filter:blur(10px);margin-bottom:10px;font-weight:600}
-.work-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;letter-spacing:-.5px;line-height:1.1}
-.work-desc{font-size:13px;opacity:.85;margin-top:6px}
-.work-1{background:linear-gradient(135deg,#FFF8E7,#F0E0C8)}
-.work-2{background:linear-gradient(135deg,#E8D5C4,#C4A894)}
-.work-3{background:linear-gradient(135deg,#6C63FF,#FF6584)}
-.work-4{background:linear-gradient(135deg,#E8F5E9,#A5D6A7)}
-.mockup-brand{background:#FFF8E7;border-radius:16px;padding:22px 18px;text-align:center;width:80%;box-shadow:0 20px 50px rgba(0,0,0,.15)}
-.mockup-logo-circle{width:54px;height:54px;border-radius:50%;background:#6F4E37;color:#FFF8E7;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin:0 auto 10px}
-.mockup-brand-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#2C1810;line-height:1;margin-bottom:4px}
-.mockup-brand-sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6F4E37;margin-bottom:14px}
-.mockup-colors{display:flex;gap:6px;justify-content:center}
-.mockup-colors div{width:22px;height:22px;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.1)}
-.mockup-pack{position:relative}
-.jar{width:130px;height:160px;background:linear-gradient(160deg,#F5EDE0,#E8DCC8);border-radius:12px 12px 16px 16px;box-shadow:0 20px 50px rgba(0,0,0,.2),inset -10px 0 20px rgba(0,0,0,.05);position:relative;display:flex;align-items:center;justify-content:center}
-.jar::before{content:'';position:absolute;top:-8px;left:10px;right:10px;height:14px;background:linear-gradient(180deg,#4A4A4A,#2D2D2D);border-radius:8px 8px 4px 4px}
-.jar-label{width:82%;text-align:center;background:rgba(255,255,255,.7);border-radius:8px;padding:12px 8px}
-.jar-logo{font-size:22px;margin-bottom:6px}
-.jar-name{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:#4A4A4A;line-height:1.1}
-.jar-desc{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8B8B8B;margin-top:4px}
-.mockup-social{position:relative}
-.phone{width:150px;background:#1A1A1A;border-radius:22px;padding:10px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
-.phone-post{display:flex;align-items:center;gap:6px;margin-bottom:8px;padding:0 4px}
-.phone-avatar{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#6C63FF,#FF6584)}
-.phone-name{font-size:10px;color:#fff;font-weight:500}
-.phone-image{height:80px;background:linear-gradient(135deg,#6C63FF,#FF6584);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:8px}
-.phone-caption{font-size:11px;color:#fff;padding:0 4px;margin-bottom:8px;font-weight:500}
-.phone-cta{background:#FF6584;color:#fff;font-size:10px;font-weight:600;padding:8px;border-radius:100px;text-align:center;margin:0 4px 4px}
-.mockup-card{position:relative}
-.mp-card{width:150px;background:#fff;border-radius:16px;padding:14px;box-shadow:0 20px 50px rgba(0,0,0,.15);position:relative}
-.mp-badge{position:absolute;top:10px;right:10px;background:#E74C3C;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px}
-.mp-img{height:90px;background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:10px}
-.mp-title{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:#2A1A1E;line-height:1.2}
-.mp-price{font-size:15px;font-weight:700;color:#2ECC71;margin-top:3px}
-.mp-stars{font-size:11px;color:#F39C12;margin-top:3px;letter-spacing:1px}
+.work-tag{display:inline-block;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,.3);backdrop-filter:blur(10px);margin-bottom:10px;font-weight:600;border:1px solid rgba(255,255,255,.4)}
+.work-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;letter-spacing:3px;line-height:1.1;text-transform:uppercase}
+.work-desc{font-size:13px;opacity:.9;margin-top:6px;font-weight:300;letter-spacing:.3px}
+
+/* Розовые фоны карточек */
+.work-1{background:linear-gradient(160deg,#FFD5E0,#E5A1B0)}
+.work-2{background:linear-gradient(160deg,#FBE0E8,#D97A8A)}
+.work-3{background:linear-gradient(160deg,#FFE4EC,#C77E90)}
+.work-4{background:linear-gradient(160deg,#F5D5E0,#E5B8C4)}
+
+/* ===== МОКАП 1: РОЗОВАЯ СУМКА HUSH ===== */
+.mockup-bag{position:relative;width:200px;height:180px;display:flex;align-items:center;justify-content:center}
+.bag-body{width:170px;height:120px;background:linear-gradient(160deg,#FFD0DC,#F2A5BD);border-radius:14px;position:relative;box-shadow:0 25px 50px rgba(162,90,109,.45),inset -10px -10px 25px rgba(162,90,109,.15),inset 10px 10px 25px rgba(255,255,255,.4)}
+.bag-handle{position:absolute;top:-38px;left:50%;transform:translateX(-50%);width:90px;height:70px;border:6px solid #F2A5BD;border-bottom:none;border-radius:70px 70px 0 0;box-shadow:0 -3px 8px rgba(162,90,109,.2),inset 0 3px 8px rgba(255,255,255,.3)}
+.bag-clasp{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:32px;height:32px;background:radial-gradient(circle,#FFF,#E5B8C4);border-radius:50%;box-shadow:0 3px 8px rgba(162,90,109,.4),inset 0 0 0 2px rgba(255,255,255,.5)}
+.bag-label{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:13px;color:#A25A6D;letter-spacing:4px;font-weight:500}
+
+/* ===== МОКАП 2: КОСМЕТИКА ===== */
+.mockup-cosm{position:relative}
+.cosm-jar{width:140px;height:100px;background:linear-gradient(160deg,#FFE8EE,#F2A5BD);border-radius:10px 10px 14px 14px;position:relative;box-shadow:0 25px 50px rgba(162,90,109,.4),inset -8px -8px 20px rgba(162,90,109,.15),inset 8px 8px 20px rgba(255,255,255,.5)}
+.cosm-lid{position:absolute;top:-16px;left:-6px;right:-6px;height:32px;background:linear-gradient(160deg,#E5A1B0,#C77E90);border-radius:8px;box-shadow:0 6px 14px rgba(162,90,109,.4),inset 0 2px 4px rgba(255,255,255,.3)}
+.cosm-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;width:100%}
+.cosm-flower{font-size:22px;margin-bottom:4px}
+.cosm-name{font-family:'Cormorant Garamond',serif;font-size:17px;color:#A25A6D;letter-spacing:3px;line-height:1;font-weight:500}
+.cosm-sub{font-size:7px;letter-spacing:3px;text-transform:uppercase;color:#8B6B70;margin-top:5px}
+
+/* ===== МОКАП 3: УКРАШЕНИЯ ===== */
+.mockup-jewel{position:relative}
+.jewel-box{width:160px;height:140px;background:linear-gradient(160deg,#FFF0F4,#F8D5DE);border-radius:12px;box-shadow:0 25px 50px rgba(162,90,109,.4),inset 0 0 0 1px rgba(255,255,255,.6);position:relative;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.jewel-box::before{content:'';position:absolute;inset:8px;border:1px solid rgba(199,126,144,.25);border-radius:6px;pointer-events:none}
+.jewel-ring{width:56px;height:56px;border:4px solid #E5A1B0;border-radius:50%;position:relative;margin-bottom:14px;box-shadow:0 6px 16px rgba(162,90,109,.35),inset 0 0 12px rgba(255,255,255,.6)}
+.jewel-ring::after{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:16px;height:16px;background:radial-gradient(circle,#FFF,#FFB6C1,#D97A8A);border-radius:50%;box-shadow:0 0 14px rgba(255,182,193,.9)}
+.jewel-name{font-family:'Cormorant Garamond',serif;font-size:16px;color:#A25A6D;letter-spacing:4px;font-weight:500}
+.jewel-sub{font-size:7px;letter-spacing:3px;text-transform:uppercase;color:#C77E90;margin-top:4px}
+
+/* ===== МОКАП 4: ПАРФЮМ ===== */
+.mockup-perf{position:relative}
+.perf-bottle{width:110px;height:160px;background:linear-gradient(160deg,#FFD5E0,#E5A1B0);border-radius:10px 10px 14px 14px;position:relative;box-shadow:0 25px 50px rgba(162,90,109,.45),inset -8px -8px 20px rgba(162,90,109,.15),inset 8px 8px 20px rgba(255,255,255,.35)}
+.perf-bottle::after{content:'';position:absolute;top:28%;left:15%;width:20%;height:42%;background:linear-gradient(160deg,rgba(255,255,255,.5),transparent);border-radius:50%;filter:blur(3px)}
+.perf-cap{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:44px;height:26px;background:linear-gradient(160deg,#C77E90,#A25A6D);border-radius:6px;box-shadow:0 4px 10px rgba(162,90,109,.5)}
+.perf-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;width:100%;padding:0 12px}
+.perf-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#FFF;letter-spacing:1px;font-weight:500}
+.perf-sub{font-size:6.5px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.85);margin-top:5px}
+
 .process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 22px;transition:all .35s ease}
 .step:hover{border-color:var(--pink-mid);transform:translateY(-4px)}
@@ -124,7 +135,7 @@ footer{padding:32px 0 48px;text-align:center;font-size:13px;color:var(--muted)}
 footer a{color:var(--pink-deep);text-decoration:none;font-weight:500}
 footer a:hover{text-decoration:underline}
 @media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr)}.card-1,.card-2,.card-3,.card-4,.card-5,.card-6{grid-column:span 2}.process{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){nav .wrap{padding:0 20px}.nav-links a:not(.nav-cta){display:none}.hero{padding:120px 0 40px}.hero h1{letter-spacing:-2px}.hero .big-name{letter-spacing:-3px}section{padding:56px 0}.portfolio{grid-template-columns:1fr;gap:16px}.work{aspect-ratio:5/6}.srv{flex-direction:column;align-items:flex-start;gap:8px;padding:22px}.cta{padding:56px 24px}.process{grid-template-columns:1fr}.card{padding:24px}.stat{font-size:52px}}
+@media (max-width:640px){nav .wrap{padding:0 20px}.nav-links a:not(.nav-cta){display:none}.hero{padding:120px 0 40px}.hero h1{letter-spacing:-2px}.hero .big-name{letter-spacing:-3px}section{padding:56px 0}.portfolio{grid-template-columns:1fr;gap:16px}.work{aspect-ratio:4/5}.srv{flex-direction:column;align-items:flex-start;gap:8px;padding:22px}.cta{padding:56px 24px}.process{grid-template-columns:1fr}.card{padding:24px}.stat{font-size:52px}}
 </style>
 </head>
 <body>
@@ -132,14 +143,14 @@ footer a:hover{text-decoration:underline}
 <section class="hero"><div class="wrap"><div class="hero-label">Первый макет — бесплатно</div><h1>Дизайн, который<br><em>запоминается</em><span class="big-name">an.tinkof</span></h1><p class="hero-sub">Привет! Я делаю графический дизайн для малого бизнеса: айдентику, соцсети, карточки товаров и лендинги. Быстро, аккуратно и с бесплатным пробным макетом.</p><div class="hero-btns"><a href="https://t.me/xtruehelpxx" class="btn btn-primary">Обсудить проект →</a><a href="#portfolio" class="btn btn-ghost">Смотреть работы</a></div></div></section>
 <section id="about"><div class="wrap"><div class="section-label">Обо мне</div><h2>Не просто красиво —<br><em>с задачей</em></h2><p class="section-sub">Каждый проект начинаю с вопроса «зачем». Дизайн должен решать проблему бизнеса — а не просто радовать глаз.</p><div class="bento"><div class="card card-1"><h3>Я помогаю бизнесу <em>выглядеть дорого</em></h3><p>Работаю с кофейнями, салонами, онлайн-школами и продавцами на маркетплейсах. Подбираю стиль под аудиторию и цели, а не по шаблону.</p></div><div class="card card-2 card-accent"><div class="stat">24ч</div><div class="stat-label">минимальный срок работы</div></div><div class="card card-3 card-dark"><div class="stat">∞</div><div class="stat-label">идей для вашего бренда</div></div><div class="card card-4"><h3>Что для меня <em>важно</em></h3><p>Уложиться в срок, попасть в стиль и оставить у клиента ощущение, что он получил больше, чем ожидал. Правки — без нервов и доплат.</p></div><div class="card card-5"><h3>Инструменты</h3><p>Figma, Canva, Photoshop, Illustrator. Для сайтов — чистый HTML/CSS, чтобы всё работало быстро и без лишнего веса.</p></div><div class="card card-6 card-accent"><h3>Первый макет — <em>бесплатно</em></h3><p>Показываю эскиз до оплаты. Понравится — работаем дальше. Нет — вы ничего не теряете.</p></div></div></div></section>
 <section id="services"><div class="wrap"><div class="section-label">Услуги</div><h2>Что я <em>делаю</em></h2><p class="section-sub">Прозрачные цены. Первый макет бесплатно. Правки в рамках пакета — без доплат.</p><div class="services-list"><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">01</div><div class="srv-info"><h3>Логотип и айдентика</h3><p>Лого, палитра, шрифты, мини-брендбук + шаблоны для соцсетей</p></div></div><div class="srv-price">от 5 000 ₽</div></a><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">02</div><div class="srv-info"><h3>Лендинг или сайт-визитка</h3><p>Адаптив под телефон, чистый код, быстрая загрузка</p></div></div><div class="srv-price">от 10 000 ₽</div></a><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">03</div><div class="srv-info"><h3>Карточки товаров WB / Ozon</h3><p>Инфографика, преимущества, продающие слайды для маркетплейса</p></div></div><div class="srv-price">от 1 000 ₽</div></a><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">04</div><div class="srv-info"><h3>Оформление соцсетей</h3><p>Шаблоны постов, сторис, обложек в едином стиле бренда</p></div></div><div class="srv-price">от 3 500 ₽</div></a><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">05</div><div class="srv-info"><h3>Рекламные креативы</h3><p>Баннеры, сторис, посты для рекламных кампаний</p></div></div><div class="srv-price">от 1 500 ₽</div></a></div></div></section>
-<section id="portfolio"><div class="wrap"><div class="section-label">Портфолио</div><h2>Мои <em>работы</em></h2><p class="section-sub">Авторские концепции — показываю, как решаю задачи разных сфер бизнеса.</p><div class="portfolio">
-<div class="work work-1"><div class="work-visual"><div class="mockup-brand"><div class="mockup-logo-circle">У</div><div class="mockup-brand-name">Утро</div><div class="mockup-brand-sub">coffee & bakery</div><div class="mockup-colors"><div style="background:#FFF8E7"></div><div style="background:#D4A574"></div><div style="background:#6F4E37"></div><div style="background:#2C1810"></div></div></div></div><div class="work-content"><span class="work-tag">Айдентика</span><div class="work-title">Кофейня «Утро»</div><div class="work-desc">Логотип, палитра, 10 шаблонов для Instagram</div></div></div>
-<div class="work work-2"><div class="work-visual"><div class="mockup-pack"><div class="jar"><div class="jar-label"><div class="jar-logo">🌿</div><div class="jar-name">Bath Botanica</div><div class="jar-desc">soy candle · 200g</div></div></div></div></div><div class="work-content"><span class="work-tag">Упаковка</span><div class="work-title">Bath Botanica</div><div class="work-desc">Этикетки и коробка для бренда свечей</div></div></div>
-<div class="work work-3"><div class="work-visual"><div class="mockup-social"><div class="phone"><div class="phone-post"><div class="phone-avatar"></div><div class="phone-name">online.school</div></div><div class="phone-image">⚡</div><div class="phone-caption">Новый запуск</div><div class="phone-cta">Записаться</div></div></div></div><div class="work-content"><span class="work-tag">Креативы</span><div class="work-title">Онлайн-школа</div><div class="work-desc">5 рекламных баннеров для запуска курса</div></div></div>
-<div class="work work-4"><div class="work-visual"><div class="mockup-card"><div class="mp-card"><div class="mp-badge">−20%</div><div class="mp-img">🥤</div><div class="mp-title">Эко-бутылка</div><div class="mp-price">1 290 ₽</div><div class="mp-stars">★★★★★</div></div></div></div><div class="work-content"><span class="work-tag">Карточки WB</span><div class="work-title">Эко-бутылка</div><div class="work-desc">Инфографика для маркетплейса</div></div></div>
+<section id="portfolio"><div class="wrap"><div class="section-label">Портфолио</div><h2>Мои <em>работы</em></h2><p class="section-sub">Авторские концепции — показываю, как решаю задачи премиального сегмента.</p><div class="portfolio">
+<div class="work work-1"><div class="work-visual"><div class="mockup-bag"><div class="bag-body"><div class="bag-handle"></div><div class="bag-clasp"></div><div class="bag-label">HUSH</div></div></div></div><div class="work-content"><span class="work-tag">Бренд</span><div class="work-title">Hush</div><div class="work-desc">Айдентика и рекламные креативы для бренда сумок</div></div></div>
+<div class="work work-2"><div class="work-visual"><div class="mockup-cosm"><div class="cosm-jar"><div class="cosm-lid"></div><div class="cosm-label"><div class="cosm-flower">✿</div><div class="cosm-name">VELOURS</div><div class="cosm-sub">crème précieuse</div></div></div></div></div><div class="work-content"><span class="work-tag">Косметика</span><div class="work-title">Velours</div><div class="work-desc">Упаковка премиальной косметики и этикетка</div></div></div>
+<div class="work work-3"><div class="work-visual"><div class="mockup-jewel"><div class="jewel-box"><div class="jewel-ring"></div><div class="jewel-name">ÉCLAT</div><div class="jewel-sub">fine jewelry</div></div></div></div><div class="work-content"><span class="work-tag">Украшения</span><div class="work-title">Éclat</div><div class="work-desc">Премиальный брендинг ювелирного дома</div></div></div>
+<div class="work work-4"><div class="work-visual"><div class="mockup-perf"><div class="perf-bottle"><div class="perf-cap"></div><div class="perf-label"><div class="perf-name">Nuit</div><div class="perf-sub">eau de parfum</div></div></div></div></div><div class="work-content"><span class="work-tag">Парфюм</span><div class="work-title">Nuit</div><div class="work-desc">Дизайн флакона и лейбла для парфюмерного бренда</div></div></div>
 </div></div></section>
 <section><div class="wrap"><div class="section-label">Как работаю</div><h2>4 шага до <em>результата</em></h2><p class="section-sub">Без долгих переписок. Без непонятных ТЗ. Только то, что нужно для вашего бизнеса.</p><div class="process"><div class="step"><div class="step-num">01</div><h4>Заявка</h4><p>Пишете в Telegram — обсуждаем задачу и цели.</p></div><div class="step"><div class="step-num">02</div><h4>Пробный макет</h4><p>Показываю первый эскиз бесплатно за 2–3 часа.</p></div><div class="step"><div class="step-num">03</div><h4>Работа</h4><p>50% предоплата — делаю основную часть. Правки в рамках пакета.</p></div><div class="step"><div class="step-num">04</div><h4>Сдача</h4><p>Финальная оплата — отдаю все файлы и ссылки на редактируемые макеты.</p></div></div></div></section>
 <section><div class="wrap"><div class="cta"><div class="section-label">Начнём</div><h2>Есть <em>задача?</em></h2><p>Напишите в Telegram — обсудим проект. Первый макет покажу бесплатно за 2–3 часа. Без предоплаты и обязательств.</p><a href="https://t.me/xtruehelpxx" class="btn btn-primary">Написать в Telegram →</a></div></div></section>
-<footer><div class="wrap">© 2026 · an.tinkof · Графический дизайнер · <a href="https://t.me/xtruehelpxx">@xtruehelpxx</a></div></footer>
+<footer><div class="wrap">© 2026 · an.tinkof · Графический дизайнер · <a href="https://t.me/xtruehelpxx">@xtruehelpxx</a></footer>
 </body>
 </html>
