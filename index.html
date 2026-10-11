@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>an.tinkof — Графический дизайнер</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=Anton&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8E9EC;--card:#FFF;--pink:#F2D5DB;--pink-mid:#E5A1B0;--pink-dark:#C77E90;--pink-deep:#A25A6D;--text:#2A1A1E;--muted:#8B6B70;--line:#F0DDE1}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(229,161,176,.4),transparent 70%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(242,213,219,.6),transparent 70%);pointer-events:none;z-index:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+nav{position:fixed;top:0;left:0;right:0;padding:18px 0;background:rgba(248,233,236,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:100;border-bottom:1px solid rgba(240,221,225,.5)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-.5px;color:var(--text);text-decoration:none}
+.brand::before{content:'';display:inline-block;width:8px;height:8px;background:var(--pink-dark);border-radius:50%;margin-right:8px;vertical-align:middle;position:relative;top:-2px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:14px;color:var(--muted);text-decoration:none;font-weight:500;transition:color .25s ease}
+.nav-links a:hover{color:var(--pink-deep)}
+.nav-cta{background:var(--text);color:#fff !important;padding:10px 20px;border-radius:100px;font-size:13px !important}
+.nav-cta:hover{background:var(--pink-deep) !important}
+.hero{padding:150px 0 80px;text-align:center}
+.hero-label{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:100px;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.5px;margin-bottom:28px}
+.hero-label::before{content:'';width:6px;height:6px;background:var(--pink-dark);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,10vw,120px);line-height:.95;letter-spacing:-3px;font-weight:500;margin-bottom:12px}
+.hero h1 em{font-style:italic;color:var(--pink-deep);font-weight:400}
+.hero .big-name{display:block;font-family:'Anton',sans-serif;font-size:clamp(70px,17vw,200px);letter-spacing:-5px;line-height:.85;color:var(--pink-mid);text-transform:uppercase;margin-top:8px;font-weight:400}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--muted);max-width:520px;margin:32px auto 40px;line-height:1.65}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:80px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:100px;text-decoration:none;font-weight:600;font-size:15px;transition:all .3s ease;border:none;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--text);color:#fff}
+.btn-primary:hover{background:var(--pink-deep);transform:translateY(-2px)}
+.btn-ghost{background:#fff;color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--pink-dark);transform:translateY(-2px)}
+section{padding:80px 0}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--pink-deep);font-weight:600;margin-bottom:16px}
+.section-label::before{content:'';width:24px;height:1px;background:var(--pink-dark)}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-1.5px;font-weight:500;margin-bottom:16px}
+h2 em{font-style:italic;color:var(--pink-deep);font-weight:400}
+.section-sub{font-size:16px;color:var(--muted);max-width:520px;margin-bottom:48px;line-height:1.6}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.card{background:var(--card);border-radius:24px;padding:28px;border:1px solid var(--line);transition:all .35s ease}
+.card:hover{border-color:var(--pink-mid);transform:translateY(-3px);box-shadow:0 20px 50px rgba(165,90,109,.08)}
+.card-1{grid-column:span 4}.card-2{grid-column:span 2}.card-3{grid-column:span 2}.card-4{grid-column:span 4}.card-5{grid-column:span 3}.card-6{grid-column:span 3}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;letter-spacing:-.5px;margin-bottom:10px;line-height:1.15}
+.card h3 em{font-style:italic;color:var(--pink-deep);font-weight:400}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.65}
+.card-accent{background:linear-gradient(135deg,var(--pink),#F8DDE3);border-color:transparent}
+.card-accent h3{color:var(--text)}.card-accent p{color:var(--pink-deep)}
+.card-dark{background:var(--text);color:#fff;border-color:transparent}
+.card-dark h3{color:#fff}.card-dark h3 em{color:var(--pink-mid)}.card-dark p{color:rgba(255,255,255,.6)}
+.stat{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:500;letter-spacing:-2px;line-height:1;color:var(--pink-deep);margin-bottom:8px}
+.card-dark .stat{color:var(--pink-mid)}
+.stat-label{font-size:13px;color:var(--muted)}
+.card-dark .stat-label{color:rgba(255,255,255,.55)}
+.services-list{display:flex;flex-direction:column;gap:10px}
+.srv{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;transition:all .3s ease;text-decoration:none;color:inherit}
+.srv:hover{border-color:var(--pink-dark);transform:translateX(6px);background:linear-gradient(90deg,#fff,#FFF7F8)}
+.srv-left{display:flex;align-items:center;gap:20px;flex:1}
+.srv-num{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--pink-mid);font-weight:600;min-width:32px}
+.srv-info h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-.3px;margin-bottom:2px}
+.srv-info p{font-size:13.5px;color:var(--muted);line-height:1.5}
+.srv-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--pink-deep);white-space:nowrap}
+.portfolio{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.work{border-radius:24px;aspect-ratio:4/3;display:flex;align-items:flex-end;padding:28px;position:relative;overflow:hidden;cursor:pointer;transition:transform .4s ease;color:#fff}
+.work:hover{transform:scale(1.02)}
+.work::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),transparent 60%)}
+.work-content{position:relative;z-index:1}
+.work-tag{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,.25);backdrop-filter:blur(10px);margin-bottom:10px;font-weight:600}
+.work-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;letter-spacing:-.5px;line-height:1.1}
+.work-desc{font-size:13px;opacity:.8;margin-top:6px}
+.work-1{background:linear-gradient(135deg,#E5A1B0,#A25A6D)}
+.work-2{background:linear-gradient(135deg,#C4A5B5,#7C5A6B)}
+.work-3{background:linear-gradient(135deg,#F2B8C0,#D97A8A)}
+.work-4{background:linear-gradient(135deg,#D9B0B8,#8B5A68)}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 22px;transition:all .35s ease}
+.step:hover{border-color:var(--pink-mid);transform:translateY(-4px)}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;color:var(--pink-mid);line-height:1;margin-bottom:16px;letter-spacing:-1px}
+.step h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:8px;letter-spacing:-.3px}
+.step p{font-size:13.5px;color:var(--muted);line-height:1.55}
+.cta{background:var(--text);color:#fff;border-radius:32px;padding:80px 40px;text-align:center;margin:40px 0 24px;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(229,161,176,.25),transparent 70%);pointer-events:none}
+.cta > *{position:relative;z-index:1}
+.cta .section-label{color:var(--pink-mid)}.cta .section-label::before{background:var(--pink-mid)}
+.cta h2{color:#fff}.cta h2 em{color:var(--pink-mid)}
+.cta p{font-size:16px;color:rgba(255,255,255,.65);max-width:440px;margin:0 auto 32px;line-height:1.65}
+.cta .btn-primary{background:#fff;color:var(--text)}
+.cta .btn-primary:hover{background:var(--pink-mid);color:var(--text)}
+footer{padding:32px 0 48px;text-align:center;font-size:13px;color:var(--muted)}
+footer a{color:var(--pink-deep);text-decoration:none;font-weight:500}
+footer a:hover{text-decoration:underline}
+@media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr)}.card-1,.card-2,.card-3,.card-4,.card-5,.card-6{grid-column:span 2}.process{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){nav .wrap{padding:0 20px}.nav-links a:not(.nav-cta){display:none}.hero{padding:120px 0 40px}.hero h1{letter-spacing:-2px}.hero .big-name{letter-spacing:-3px}section{padding:56px 0}.portfolio{grid-template-columns:1fr}.work{aspect-ratio:1/1}.srv{flex-direction:column;align-items:flex-start;gap:8px;padding:22px}.cta{padding:56px 24px}.process{grid-template-columns:1fr}.card{padding:24px}.stat{font-size:52px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="#" class="brand">an.tinkof</a><div class="nav-links"><a href="#about">Обо мне</a><a href="#services">Услуги</a><a href="#portfolio">Работы</a><a href="https://t.me/xtruehelpxx" class="nav-cta">Написать →</a></div></div></nav>
+<section class="hero"><div class="wrap"><div class="hero-label">Первый макет — бесплатно</div><h1>Дизайн, который<br><em>запоминается</em><span class="big-name">an.tinkof</span></h1><p class="hero-sub">Привет! Я делаю графический дизайн для малого бизнеса: айдентику, соцсети, карточки товаров и лендинги. Быстро, аккуратно и с бесплатным пробным макетом.</p><div class="hero-btns"><a href="https://t.me/xtruehelpxx" class="btn btn-primary">Обсудить проект →</a><a href="#portfolio" class="btn btn-ghost">Смотреть работы</a></div></div></section>
+<section id="about"><div class="wrap"><div class="section-label">Обо мне</div><h2>Не просто красиво —<br><em>с задачей</em></h2><p class="section-sub">Каждый проект начинаю с вопроса «зачем». Дизайн должен решать проблему бизнеса — а не просто радовать глаз.</p><div class="bento"><div class="card card-1"><h3>Я помогаю бизнесу <em>выглядеть дорого</em></h3><p>Работаю с кофейнями, салонами, онлайн-школами и продавцами на маркетплейсах. Подбираю стиль под аудиторию и цели, а не по шаблону.</p></div><div class="card card-2 card-accent"><div class="stat">24ч</div><div class="stat-label">минимальный срок работы</div></div><div class="card card-3 card-dark"><div class="stat">∞</div><div class="stat-label">идей для вашего бренда</div></div><div class="card card-4"><h3>Что для меня <em>важно</em></h3><p>Уложиться в срок, попасть в стиль и оставить у клиента ощущение, что он получил больше, чем ожидал. Правки — без нервов и доплат.</p></div><div class="card card-5"><h3>Инструменты</h3><p>Figma, Canva, Photoshop, Illustrator. Для сайтов — чистый HTML/CSS, чтобы всё работало быстро и без лишнего веса.</p></div><div class="card card-6 card-accent"><h3>Первый макет — <em>бесплатно</em></h3><p>Показываю эскиз до оплаты. Понравится — работаем дальше. Нет — вы ничего не теряете.</p></div></div></div></section>
+<section id="services"><div class="wrap"><div class="section-label">Услуги</div><h2>Что я <em>делаю</em></h2><p class="section-sub">Прозрачные цены. Первый макет бесплатно. Правки в рамках пакета — без доплат.</p><div class="services-list"><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">01</div><div class="srv-info"><h3>Логотип и айдентика</h3><p>Лого, палитра, шрифты, мини-брендбук + шаблоны для соцсетей</p></div></div><div class="srv-price">от 5 000 ₽</div></a><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">02</div><div class="srv-info"><h3>Лендинг или сайт-визитка</h3><p>Адаптив под телефон, чистый код, быстрая загрузка</p></div></div><div class="srv-price">от 10 000 ₽</div></a><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">03</div><div class="srv-info"><h3>Карточки товаров WB / Ozon</h3><p>Инфографика, преимущества, продающие слайды для маркетплейса</p></div></div><div class="srv-price">от 1 000 ₽</div></a><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">04</div><div class="srv-info"><h3>Оформление соцсетей</h3><p>Шаблоны постов, сторис, обложек в едином стиле бренда</p></div></div><div class="srv-price">от 3 500 ₽</div></a><a href="https://t.me/xtruehelpxx" class="srv"><div class="srv-left"><div class="srv-num">05</div><div class="srv-info"><h3>Рекламные креативы</h3><p>Баннеры, сторис, посты для рекламных кампаний</p></div></div><div class="srv-price">от 1 500 ₽</div></a></div></div></section>
+<section id="portfolio"><div class="wrap"><div class="section-label">Портфолио</div><h2>Мои <em>работы</em></h2><p class="section-sub">Авторские концепции — показываю, как решаю задачи разных сфер бизнеса.</p><div class="portfolio"><div class="work work-1"><div class="work-content"><span class="work-tag">Айдентика</span><div class="work-title">Кофейня «Утро»</div><div class="work-desc">Логотип, палитра, 10 шаблонов для Instagram</div></div></div><div class="work work-2"><div class="work-content"><span class="work-tag">Упаковка</span><div class="work-title">Bath Botanica</div><div class="work-desc">Этикетки и коробка для бренда свечей</div></div></div><div class="work work-3"><div class="work-content"><span class="work-tag">Креативы</span><div class="work-title">Онлайн-школа</div><div class="work-desc">5 рекламных баннеров для запуска курса</div></div></div><div class="work work-4"><div class="work-content"><span class="work-tag">Карточки WB</span><div class="work-title">Эко-бутылка</div><div class="work-desc">Инфографика для маркетплейса</div></div></div></div></div></section>
+<section><div class="wrap"><div class="section-label">Как работаю</div><h2>4 шага до <em>результата</em></h2><p class="section-sub">Без долгих переписок. Без непонятных ТЗ. Только то, что нужно для вашего бизнеса.</p><div class="process"><div class="step"><div class="step-num">01</div><h4>Заявка</h4><p>Пишете в Telegram — обсуждаем задачу и цели.</p></div><div class="step"><div class="step-num">02</div><h4>Пробный макет</h4><p>Показываю первый эскиз бесплатно за 2–3 часа.</p></div><div class="step"><div class="step-num">03</div><h4>Работа</h4><p>50% предоплата — делаю основную часть. Правки в рамках пакета.</p></div><div class="step"><div class="step-num">04</div><h4>Сдача</h4><p>Финальная оплата — отдаю все файлы и ссылки на редактируемые макеты.</p></div></div></div></section>
+<section><div class="wrap"><div class="cta"><div class="section-label">Начнём</div><h2>Есть <em>задача?</em></h2><p>Напишите в Telegram — обсудим проект. Первый макет покажу бесплатно за 2–3 часа. Без предоплаты и обязательств.</p><a href="https://t.me/xtruehelpxx" class="btn btn-primary">Написать в Telegram →</a></div></div></section>
+<footer><div class="wrap">© 2026 · an.tinkof · Графический дизайнер · <a href="https://t.me/xtruehelpxx">@xtruehelpxx</a></div></footer>
+</body>
+</html>
